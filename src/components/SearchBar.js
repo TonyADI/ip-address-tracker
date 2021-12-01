@@ -13,7 +13,8 @@ const Searchbar = props => {
                 <input placeholder="Search for any IP address or domain"
                 value={props.term} onChange={handleChange}
                 onKeyPress={handleKeyPress}></input>
-                <button><img src={props.iconArrow} alt='right arrow'/></button></div>
+                <button onClick={props.handleClick}
+                ><img src={props.iconArrow} alt='right arrow'/></button></div>
         </div>
     )
 }
