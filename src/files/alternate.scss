@@ -1,0 +1,100 @@
+$rounded-border: 15px;
+$spacing: 30px;
+.App {
+    font-family: 'Rubik', sans-serif;
+    position: relative;
+    .background-pattern {
+        height: 35vh;
+        position: absolute;
+        width: 100%;
+        z-index: 0;
+    }
+    > h2 {
+        color: #fff;
+        font-weight: 500;
+        font-size: 35px;
+        margin: 0;
+        padding-top: 25px;
+        position: relative;
+        text-align: center;
+        z-index: 1;
+    }
+    .searchbar {
+        margin: $spacing auto 52.5px;
+        width: 40%;
+        .input-container {
+            background-color: #fff;
+            border-radius: $rounded-border;
+            cursor: pointer;
+            padding: 20px 25px 22px;
+            position: relative;
+            z-index: 1;
+            input {
+                border: 0;
+                font-size: 18px;
+                width: 90%;
+            }
+            input:focus {
+                outline: none;
+            }
+            button {
+                background-color: #000;
+                border: 0;
+                border-radius: 0 $rounded-border $rounded-border 0;
+                cursor: inherit;
+                height: 100%;
+                padding: 25px;
+                position: absolute;
+                right: 0;
+                top: 0;
+                transition: all 0.25s;
+            }
+            button:hover {
+                background-color: hsl(0, 0%, 17%);
+            }
+        }
+    }
+    .dashboard {
+        background-color: #fff;
+        border-radius: $rounded-border;
+        /* box-sizing: border-box; neede? */
+        display: flex;
+        flex-direction: row;
+        margin: auto;
+        padding: 25px 20px 40px;
+        position: relative;
+        width: 77%;
+        z-index: 1;
+        div.category {
+            border-right: 0.5px solid hsla(0, 0%, 59%, 0.541);
+            box-sizing: border-box;
+            padding: 0 30px;
+            width: 25%;
+            h3 {
+                color: hsl(0, 0%, 59%);
+                font-size: 15px;
+                letter-spacing: 1.5px;
+                margin-bottom: 15px;
+                text-transform: uppercase;
+            }
+            span {
+                color: hsl(0, 0%, 17%);
+                font-size: 26px;
+                font-weight: 500;
+            }
+        }
+        div.category:last-child {
+            border: 0;
+        }
+    }
+    #map {
+        border: 0;
+        height: 65vh;
+        left: 0;
+        position: absolute;
+        top: 35vh;
+        width: 100%;
+    }
+}
+
+
