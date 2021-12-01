@@ -1,23 +1,30 @@
-import logo from './logo.svg';
+import { useState, useEffect } from 'react';
+import Dashboard from './components/Dashboard';
+import SearchBar from './components/SearchBar';
+import iconArrow from './files/images/icon-arrow.svg';
+import bgPattern from './files/images/pattern-bg.png';
+import { ipApi } from './utils/APIs';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [term, setTerm] = useState('');
+  const [ipData, setIpData] = useState({});
+  const setSearchTerm = searchTerm => {
+    setTerm(searchTerm);
+  }
+
+  useEffect(() => {
+    ipApi().then(data => {
+      console.log(data)
+      setIpData(data)});
+  }, [])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <img src={bgPattern} className="background-pattern" 
+      alt="blue background-pattern"/>
+      <h2>IP Address Tracker</h2>
+      <SearchBar iconArrow={iconArrow} handleChange={setSearchTerm}/>
+      <Dashboard data={ipData}/>
     </div>
   );
 }
