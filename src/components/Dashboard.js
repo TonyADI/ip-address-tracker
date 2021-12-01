@@ -7,11 +7,14 @@ const Dashboard = props => {
             </div>
             <div className="category">
                 <h3>Location</h3>
-                <span></span>
+                <span>{props.data.location ? 
+                `${props.data.location.region}, ${props.data.location.country}`  
+                : '-'}</span>
             </div>
             <div className="category">
                 <h3>Timezone</h3>
-                <span></span>
+                <span>{props.data.location ? props.data.location.timezone 
+                : '-'}</span>
             </div>
             <div className="category">
                 <h3>Isp</h3>
