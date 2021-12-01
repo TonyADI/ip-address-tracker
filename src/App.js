@@ -13,18 +13,27 @@ const App = () => {
     setTerm(searchTerm);
   }
 
+  const searchIp = () => {
+    ipApi(term).then(data => setIpData(data));
+  }
+
   useEffect(() => {
-    ipApi().then(data => {
-      console.log(data)
-      setIpData(data)});
+    ipApi().then(data => setIpData(data));
   }, [])
   return (
     <div className="App">
       <img src={bgPattern} className="background-pattern" 
       alt="blue background-pattern"/>
       <h2>IP Address Tracker</h2>
-      <SearchBar iconArrow={iconArrow} handleChange={setSearchTerm}/>
+      <SearchBar iconArrow={iconArrow} handleChange={setSearchTerm}
+      handleClick={searchIp}/>
       <Dashboard data={ipData}/>
+      <iframe id="map"
+        loading="lazy"
+        allowfullscreen
+        src={`https://www.google.com/maps/embed/v1/place?zoom=5&key=AIzaSyA03z6PEEhOTgpgg-PM-w6F2Jk2pGWljJE
+          &q=${ipData.location ? ipData.location.region : ''}`}>
+      </iframe>
     </div>
   );
 }
